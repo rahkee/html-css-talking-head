@@ -23,13 +23,14 @@ div.face-time {
     .face,
     .upper,
     .lower {
+        animation-name: none;
         animation-iteration-count: infinite;
         animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
         animation-direction: alternate;
+        animation-play-state: paused;
     }
 
     .face {
-        animation-name: animationFace;
         animation-duration: 2s;
         // transition-duration: 0.5s;
         // transition-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -37,7 +38,6 @@ div.face-time {
     }
 
     .upper {
-        animation-name: animationUpper;
         animation-duration: 0.5s;
         // transition-duration: 1s;
         // transition-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -45,18 +45,10 @@ div.face-time {
     }
 
     .lower {
-        animation-name: animationLower;
         animation-duration: 0.5s;
         // transition-duration: 0.3s;
         // transition-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
         transform-origin: top center;
-    }
-
-    &.stop {
-        * {
-            animation-name: none;
-            animation-play-state: paused;
-        }
     }
 
     &.play {
