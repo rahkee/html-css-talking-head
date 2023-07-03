@@ -18,60 +18,126 @@ div.face-time {
     padding: 0.5rem;
     justify-content: center;
 
+    .face,
+    .upper,
+    .lower {
+        animation-iteration-count: infinite;
+        animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        // animation-direction: alternate;
+    }
+
     .face {
         animation-name: animationFace;
-        animation-duration: 0.2s;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-in-out;
+        animation-duration: 2s;
+        // transition-duration: 0.5s;
+        // transition-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        transform-origin: bottom center;
     }
 
     .upper {
         animation-name: animationUpper;
-        animation-duration: 0.2s;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-in-out;
+        animation-duration: 1s;
+        // transition-duration: 1s;
+        // transition-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        transform-origin: bottom center;
     }
 
     .lower {
         animation-name: animationLower;
-        animation-duration: 0.2s;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-in-out;
+        animation-duration: 0.5s;
+        // transition-duration: 0.3s;
+        // transition-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        transform-origin: top center;
+    }
+
+    &.stop {
+        * {
+            animation-name: none;
+            animation-play-state: paused;
+        }
+    }
+
+    &.play {
+        * {
+            animation-play-state: running;
+        }
+
+        .face {
+            animation-name: animationFace;
+        }
+
+        .upper {
+            animation-name: animationUpper;
+        }
+
+        .lower {
+            animation-name: animationLower;
+        }
     }
 }
 
 @keyframes animationFace {
     0% {
-        transform: rotate(-5deg);
+        transform: rotate(0deg);
     }
-    50% {
+
+    25% {
         transform: rotate(5deg);
     }
-    100% {
+
+    50% {
         transform: rotate(-5deg);
+    }
+
+    75% {
+        transform: rotate(5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
     }
 }
 
 @keyframes animationUpper {
     0% {
+        transform: translateY(0);
+    }
+
+    25% {
         transform: translateY(-5px);
     }
+
     50% {
         transform: translateY(5px);
     }
-    100% {
+
+    75% {
         transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0);
     }
 }
 
 @keyframes animationLower {
     0% {
-        transform: translateY(5px);
+        transform: translateY(0px);
     }
+
+    25% {
+        transform: translateY(10px);
+    }
+
     50% {
-        transform: translateY(-5px);
+        transform: translateY(0px);
     }
+
+    75% {
+        transform: translateY(10px);
+    }
+
     100% {
-        transform: translateY(5px);
+        transform: translateY(0px);
     }
 }
